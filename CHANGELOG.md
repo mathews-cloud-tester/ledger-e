@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Renamed the core ledger concept to book in the models layer: `Ledger`→`Book`,
+  `LedgerEntry`→`BookEntry`, `LedgerLine`→`BookLine`, `LedgerId`→`BookId`,
+  `LedgerSummary`→`BookSummary`, `openLedger`→`openBook`, the `ledgerId` field to
+  `bookId`, and moved `src/ledger/` to `src/book/`.
+
 ## 0.4.1
 
 - Settlement retries once when the region service times out.

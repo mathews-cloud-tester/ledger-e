@@ -1,6 +1,6 @@
-# ledger-a
+# book-a
 
-A small double-entry ledger service: accounts, entries, fees, settlement, a
+A small double-entry book service: accounts, entries, fees, settlement, a
 report job, and an HTTP API. TypeScript sources run directly on Node 22+ via
 type stripping; there are no dependencies to install.
 
@@ -13,7 +13,7 @@ npm run ci      # both, exactly what CI runs
 Layout:
 
 ```
-src/ledger/     core ledger: entries, balances, fees
+src/book/       core book: entries, balances, fees
 src/models/     data types shared by every layer
 src/services/   settlement and reporting jobs
 src/api/        HTTP handlers

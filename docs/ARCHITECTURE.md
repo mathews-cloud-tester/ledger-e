@@ -1,7 +1,7 @@
 # Architecture
 
-ledger-a is layered bottom-up: `src/models/` holds plain data types, `src/ledger/`
-holds the pure ledger operations (posting, balances, fees), `src/services/` holds
+book-a is layered bottom-up: `src/models/` holds plain data types, `src/book/`
+holds the pure book operations (posting, balances, fees), `src/services/` holds
 the jobs that combine them with configuration (settlement, reporting), and
 `src/api/` exposes them over HTTP.
 
