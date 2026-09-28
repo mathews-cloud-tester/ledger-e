@@ -6,9 +6,6 @@ export interface Book {
   entries: BookEntry[];
 }
 
-/** @deprecated Use {@link Book}. Retained until the services layer is renamed to Book. */
-export type Ledger = Book;
-
 export function openBook(id: BookId): Book {
   return { id, entries: [] };
 }

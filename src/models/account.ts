@@ -17,14 +17,6 @@ export interface BookSummary {
   lastPostedAt: string | null;
 }
 
-/** @deprecated Use {@link BookSummary}. Retained until the services layer is renamed to Book. */
-export interface LedgerSummary {
-  ledgerId: BookId;
-  accounts: number;
-  entries: number;
-  lastPostedAt: string | null;
-}
-
 export function accountKey(account: Pick<Account, "bookId" | "id">): string {
   return `${account.bookId}:${account.id}`;
 }

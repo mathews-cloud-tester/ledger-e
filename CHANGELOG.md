@@ -6,6 +6,8 @@
   `LedgerEntry`→`BookEntry`, `LedgerLine`→`BookLine`, `LedgerId`→`BookId`,
   `LedgerSummary`→`BookSummary`, `openLedger`→`openBook`, the `ledgerId` field to
   `bookId`, and moved `src/ledger/` to `src/book/`.
+- Migrated the services layer (settlement, reporting) to the Book API and removed
+  the temporary `Ledger`/`LedgerSummary` compatibility aliases.
 
 ## 0.4.1
 
