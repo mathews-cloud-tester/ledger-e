@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Renamed the ledger data-model types (`LedgerId`, `LedgerEntry`, `LedgerLine`, `LedgerSummary`) to `Book*` and the `ledgerId` field to `bookId`.
+- Renamed the `Ledger` type to `Book` and the `openLedger` export to `openBook`.
 
 ## 0.4.1
 
