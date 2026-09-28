@@ -24,16 +24,47 @@ export interface Invoice {
 
 const invoices: Invoice[] = [];
 
+/** Regions with a known fee schedule; anything else has no schedule to price with. */
+const ALLOWED_REGIONS = ["eu-west", "us-east", "ap-south"] as const;
+
 export function validateInvoice(body: InvoiceRequest): string | null {
-  if (typeof body.amount !== "number") return "amount must be a number";
+  if (body === null || typeof body !== "object" || Array.isArray(body)) {
+    return "request body must be a JSON object";
+  }
+
+  if (typeof body.customerId !== "string" || body.customerId.trim() === "") {
+    return "customerId is required and must be a non-empty string";
+  }
+
+  if (typeof body.amount !== "number" || !Number.isFinite(body.amount)) {
+    return "amount must be a number";
+  }
+  if (!Number.isInteger(body.amount)) {
+    return "amount must be an integer number of minor units";
+  }
+  if (body.amount <= 0) {
+    return "amount must be greater than zero";
+  }
+
+  if (body.currency !== undefined && (typeof body.currency !== "string" || !/^[A-Z]{3}$/.test(body.currency))) {
+    return "currency must be a 3-letter ISO 4217 code (e.g. EUR)";
+  }
+
+  if (body.region !== undefined && !ALLOWED_REGIONS.includes(body.region as (typeof ALLOWED_REGIONS)[number])) {
+    return `region must be one of: ${ALLOWED_REGIONS.join(", ")}`;
+  }
+
+  if (body.memo !== undefined && typeof body.memo !== "string") {
+    return "memo must be a string";
+  }
+
   return null;
 }
 
 export function createInvoice(body: InvoiceRequest): ApiResponse {
-  const customerId = body.customerId.trim();
-  if (!body.customerId) return { status: 400, body: { error: "customerId is required" } };
   const problem = validateInvoice(body);
   if (problem) return { status: 400, body: { error: problem } };
+  const customerId = (body.customerId as string).trim();
   const region = body.region ?? "eu-west";
   const fee = applyFee(body.amount as number, feeScheduleFor(region));
   const invoice: Invoice = {
