@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Renamed the `Ledger` type to `Book` and `openLedger` to `openBook` across the ledger core and services (models renamed separately).
+
 ## 0.4.1
 
 - Settlement retries once when the region service times out.
