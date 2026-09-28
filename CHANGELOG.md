@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Renamed the exported `applyFee` function to `applyServiceFee` in `src/ledger/fees.ts` and updated all call sites, imports, and re-exports.
+
 ## 0.4.1
 
 - Settlement retries once when the region service times out.
