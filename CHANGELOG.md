@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Renamed the `Ledger` interface to `Book` and `openLedger` to `openBook`, and renamed `ledger` variables/params to `book` across `src/ledger` and `src/services`.
 - Renamed the `Ledger` model types (`LedgerId`, `LedgerEntry`, `LedgerLine`, `LedgerSummary`) and the `ledgerId` field to the `Book` naming (`BookId`, `BookEntry`, `BookLine`, `BookSummary`, `bookId`).
 
 ## 0.4.1
