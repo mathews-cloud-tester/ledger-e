@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Renamed the `Ledger` model types (`LedgerId`, `LedgerEntry`, `LedgerLine`, `LedgerSummary`) and the `ledgerId` field to the `Book` naming (`BookId`, `BookEntry`, `BookLine`, `BookSummary`, `bookId`).
+
 ## 0.4.1
 
 - Settlement retries once when the region service times out.
