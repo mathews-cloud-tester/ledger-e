@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Renamed the ledger data-model types (`LedgerId`, `LedgerEntry`, `LedgerLine`, `LedgerSummary`) to `Book*` and the `ledgerId` field to `bookId`.
+
 ## 0.4.1
 
 - Settlement retries once when the region service times out.
