@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Renamed the ledger data-model concept to `Book` (`Book`, `BookId`, `BookEntry`, `BookLine`, `BookSummary`, `openBook`, and the `bookId` property). The `src/ledger/` directory name is intentionally unchanged.
+
 ## 0.4.1
 
 - Settlement retries once when the region service times out.

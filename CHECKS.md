@@ -3,7 +3,7 @@
 `npm run check` (part of `npm run ci`) enforces every rule on this page. A
 pull request is red until all of them hold.
 
-## Rule 1: the ledger API surface is listed
+## Rule 1: the book API surface is listed
 
 Every function exported from a module under `src/ledger/` must appear, by its
 exact exported name, in the table below. Renamed or added exports must update
@@ -13,12 +13,12 @@ the table in the same pull request; removed exports must be deleted from it.
 | --- | --- | --- |
 | `applyFee` | `src/ledger/fees.ts` | Apply the region fee schedule to an amount |
 | `feeScheduleFor` | `src/ledger/fees.ts` | Look up the fee schedule for a region |
-| `postEntry` | `src/ledger/ledger.ts` | Append a balanced entry to a ledger |
+| `postEntry` | `src/ledger/ledger.ts` | Append a balanced entry to a book |
 | `balanceFor` | `src/ledger/ledger.ts` | Compute an account balance |
-| `openLedger` | `src/ledger/ledger.ts` | Create an empty ledger |
+| `openBook` | `src/ledger/ledger.ts` | Create an empty book |
 | `feesOwedBy` | `src/ledger/ledger.ts` | Total fees owed on an account's debits |
 
-## Rule 2: ledger changes are listed in the changelog
+## Rule 2: book changes are listed in the changelog
 
 Any pull request that changes a file under `src/ledger/` must also add at least
 one line under the `## Unreleased` heading in `CHANGELOG.md`. The checker
